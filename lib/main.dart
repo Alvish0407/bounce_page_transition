@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
         pageTransitionsTheme: PageTransitionsTheme(
           builders: <TargetPlatform, PageTransitionsBuilder>{
             TargetPlatform.android: BouncePageTransitionBuilder(),
+            TargetPlatform.iOS: BouncePageTransitionBuilder(),
           },
         ),
       ),

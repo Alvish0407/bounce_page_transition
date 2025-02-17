@@ -45,16 +45,22 @@ class _BouncePageEffectState extends State<BouncePageEffect> with SingleTickerPr
     _controller = AnimationController(
       vsync: this,
       duration: Durations.short4,
-      reverseDuration: Durations.long1,
+      reverseDuration: Durations.short4,
     );
     _animation = Tween(end: 0.98, begin: 1.0).animate(
       CurvedAnimation(
         parent: _controller,
+        reverseCurve: Curves.ease, //
         curve: Curves.fastOutSlowIn,
-        reverseCurve: Curves.elasticIn,
       ),
     );
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
   }
 
   void onTap() {
